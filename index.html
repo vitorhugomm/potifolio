@@ -1,25 +1,177 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mini Quiz</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio — Vitor Hugo</title>
+  <style>
+    :root{--accent:#0b84ff;--bg:#0f1724;--card:#0b1220;--muted:#9aa6b2}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(180deg,#071025 0%, #071229 100%);color:#e6eef6}
+    .container{max-width:980px;margin:40px auto;padding:24px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:16px;overflow:hidden;flex-shrink:0;border:3px solid rgba(255,255,255,0.06)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    nav{margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;margin-left:12px;padding:8px 12px;border-radius:8px}
+    nav a.cta{background:linear-gradient(90deg,var(--accent),#4fb0ff);color:#06202b}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:26px}
+    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px}
+    .projects{display:grid;gap:12px}
+    .project{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:rgba(255,255,255,0.01)}
+    .project .meta{flex:1}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);display:inline-block}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){.grid{grid-template-columns:1fr;}.avatar{width:96px;height:96px}}
+
+    /* small utilities */
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none}
+    .btn-primary{background:var(--accent);color:white}
+    .muted{color:var(--muted)}
+    pre{background:#051020;padding:12px;border-radius:8px;overflow:auto}
+  </style>
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Mini Quiz: HTML e CSS</h1>
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <!-- Substitua 'photo.jpg' pela sua foto real -->
+        <img src="./IMG_20251010_150156~2.jpg" alt="Foto de Vitor Hugo" />
+      </div>
+      <div>
+        <h1>Vitor Hugo Morais Martins <span class="muted">(15 anos) — Estudante / Desenvolvedor iniciante</span></h1>
+        <p class="lead">Faço cursos de programação, crio mini jogos e experiências interativas. Interesses: front-end, jogos simples em JavaScript, e produtos digitais (ebooks).</p>
+        <div style="margin-top:8px">
+          <a class="btn btn-primary" id="githubProfileBtn" href="#">Perfil no GitHub</a>
+          <a class="btn" id="projectsBtn" href="#">Projetos</a>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Sobre</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Projetos</a>
+      </nav>
+    </header>
 
-    <div class="question">
-      <h2>1. O que significa HTML?</h2>
-      <ul class="options">
-        <li class="wrong">Hyper Trainer Markup Language</li>
-        <li class="wrong">Hyperlinks and Text Markup Language</li>
-        <li class="correct">HyperText Markup Language</li>
-        <li class="wrong">Home Tool Markup Language</li>
-      </ul>
-      <p class="info">* Passe o mouse sobre as alternativas para ver a resposta correta.</p>
-    </div>
+    <section class="grid">
+      <main class="card">
+        <h2 id="about">Sobre mim</h2>
+        <p class="muted">Sou estudante, tenho 15 anos, estou aprendendo programação e vendendo ebooks como projetos iniciais. Busco oportunidades para praticar e contribuir com projetos pequenos.</p>
+
+        <h3 id="skills" style="margin-top:18px">Habilidades</h3>
+        <p><span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JavaScript</span> <span class="tag">Git & GitHub</span> <span class="tag">Design básico</span></p>
+
+        <h3 style="margin-top:18px">Projetos</h3>
+        <div class="projects" id="projects">
+          <!-- Projeto 1: mini-jogo criado para o GitHub -->
+          <div class="project">
+            <div class="meta">
+              <strong>Click Race — Mini jogo (exemplo)</strong>
+              <div class="muted">Jogo simples em JavaScript: clique para marcar pontos contra o tempo. Ideal para adicionar ao GitHub como primeiro repositório.</div>
+            </div>
+            <div>
+              <a class="btn" href="#" data-repo="mini-jogo-click-race">Ver no GitHub</a>
+            </div>
+          </div>
+
+          <!-- Projeto 2 -->
+          <div class="project">
+            <div class="meta">
+              <strong>Site de Vendas — Loja Digital (exemplo)</strong>
+              <div class="muted">Página de vendas em HTML/CSS para venda de ebooks (modelo para sua loja Digital VH).</div>
+            </div>
+            <div>
+              <a class="btn" href="#" data-repo="loja-digital-vh">Ver no GitHub</a>
+            </div>
+          </div>
+
+          <!-- Projeto 3 -->
+          <div class="project">
+            <div class="meta">
+              <strong>Portfolio Interativo — Landing</strong>
+              <div class="muted">Landing page responsiva com cartões de projetos e contato.</div>
+            </div>
+            <div>
+              <a class="btn" href="#" data-repo="portfolio-interativo">Ver no GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px">Contato</h3>
+        <p class="muted">Coloque aqui seu e‑mail ou link do WhatsApp. (ex.: seuemail@email.com)</p>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <h3>Rápido</h3>
+          <p class="muted">Clique em <strong>Perfil no GitHub</strong> ou em qualquer botão "Ver no GitHub" para abrir seu GitHub em nova aba.</p>
+          <hr style="border:none;height:12px" />
+          <h4>Dica</h4>
+          <p class="muted">Substitua <code>photo.jpg</code> pela sua foto e edite os textos. Para publicar, crie um repositório no GitHub e envie este arquivo (index.html).</p>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="card">
+          <h4>Projeto sugerido (README)</h4>
+          <pre>
+# mini-jogo-click-race
+
+Mini jogo simples em HTML/CSS/JS onde o jogador deve clicar o máximo possível antes do tempo acabar.
+
+## Estrutura
+- index.html
+- style.css
+- script.js
+
+## Como rodar
+1. clonar o repositório
+2. abrir index.html no navegador
+
+## Licença
+MIT
+          </pre>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div class="muted">Portfólio gerado automaticamente — personalize e publique no GitHub.</div>
+    </footer>
   </div>
+
+  <script>
+    // Substitua pela sua URL do GitHub — eu usei a que você já tem.
+    const GITHUB_PROFILE = 'https://github.com/vitorhugomm/Vito';
+
+    // Mapeamento simples: transforma o data-repo em um link para seu GitHub (use o mesmo perfil)
+    document.getElementById('githubProfileBtn').href = GITHUB_PROFILE;
+    document.getElementById('projectsBtn').href = GITHUB_PROFILE + '?tab=repositories';
+
+    document.querySelectorAll('[data-repo]').forEach(el => {
+      const repo = el.getAttribute('data-repo');
+      // abre o repo no seu perfil (ainda não criado). Substitua se já existir.
+      el.href = `${GITHUB_PROFILE.replace(/\/+$/,'')}/${repo}`;
+      el.target = '_blank';
+    });
+
+    // todos os links de navegação internos: smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const to = a.getAttribute('href');
+        if(to.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(to);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script>
 </body>
 </html>
